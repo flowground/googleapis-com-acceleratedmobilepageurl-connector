@@ -1,0 +1,51 @@
+{
+    "title": "Accelerated Mobile Pages (AMP) URL",
+    "description": "Retrieves the list of AMP URLs (and equivalent AMP Cache URLs) for a given list of public URL(s).\n",
+    "docsUrl": "https://developers.google.com/amp/cache/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/acceleratedmobilepageurl/v1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://acceleratedmobilepageurl.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "acceleratedmobilepageurl_ampUrls_batchGet": {
+            "main": "./lib/actions/acceleratedmobilepageurl_ampUrls_batchGet.js",
+            "title": "Returns AMP URL(s) and equivalent\n[AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).",
+            "description": "Returns AMP URL(s) and equivalent\n[AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/acceleratedmobilepageurl_ampUrls_batchGet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
